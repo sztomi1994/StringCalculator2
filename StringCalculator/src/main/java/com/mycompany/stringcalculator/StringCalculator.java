@@ -23,20 +23,19 @@ public class StringCalculator {
     }
 
     public int add(String numbers) {
-        
+        int szam,osszeg=0;
         
         if (numbers.isEmpty()) {
 
             return 0;
         }
         String[] numberArray=numbers.split(separator);
-        if (numberArray.length==1) {
+        for (String numberArray1 : numberArray) {
+            szam=Integer.parseInt(numberArray1);
+            osszeg+=szam;
             
-            return Integer.parseInt(numberArray[0]);
         }
-        if (numberArray.length==2) {
-            return Integer.parseInt(numberArray[0])+Integer.parseInt(numberArray[1]);
-        }
-        return 0;
+        return osszeg;
+       
     }
 }

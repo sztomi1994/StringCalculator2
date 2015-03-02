@@ -13,7 +13,7 @@ public class StringCalculator {
 
     private String Default_Separator = ",";
     private String separator;
-
+    
     public StringCalculator() {
         separator = Default_Separator;
     }
@@ -23,9 +23,16 @@ public class StringCalculator {
     }
 
     public int add(String numbers) {
+        
+        
         if (numbers.isEmpty()) {
 
             return 0;
+        }
+        String[] numberArray=numbers.split(separator);
+        if (numberArray.length==1) {
+            
+            return Integer.parseInt(numberArray[0]);
         }
         return 0;
     }

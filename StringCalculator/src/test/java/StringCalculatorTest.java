@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.mycompany.stringcalculator.NegativesNotAllowed;
 import com.mycompany.stringcalculator.StringCalculator;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -28,21 +29,21 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void TwoNumber() {   
+    public void TwoNumber() {
         assertEquals(4, kalkulator.add("1,3"));
         assertEquals(14, kalkulator.add("10,4"));
-         }
+    }
 
     @Test
     public void MoreNumber() {
         assertEquals(10, kalkulator.add("1,3,1,5"));
         assertEquals(35, kalkulator.add("10,4,5,12,4"));
-         }
+    }
 
     @Test
     public void Separators() {
         kalkulator = new StringCalculator(";");
-        assertEquals(3, kalkulator.add("0;2"));
+        assertEquals(3, kalkulator.add("1;2"));
 
         kalkulator = new StringCalculator("\n");
         assertEquals(8, kalkulator.add("3\n5"));
@@ -50,6 +51,12 @@ public class StringCalculatorTest {
         kalkulator = new StringCalculator("\t");
         assertEquals(6, kalkulator.add("4\t2"));
 
+    }
+
+    @Test
+    public void NegativeNotAlloved() {
+
+        assertEquals("Negatives not allowed: -65,", 115, kalkulator.add("5,23,64,23,-65"));
     }
 
 }

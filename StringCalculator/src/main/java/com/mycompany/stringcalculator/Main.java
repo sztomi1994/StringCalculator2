@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Main {
 
-    private static String numberString = "5,23,64,23,-65";
+    
     private static int eredmeny;
     private static String separator;
     
@@ -30,6 +30,8 @@ public class Main {
     private static void start() {
         StringCalculator kalkulator = null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Separator:");
+        
         try {
             separator = reader.readLine();
             if (separator.isEmpty()) {
@@ -42,7 +44,9 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        System.out.println("\nAz eredmény:" + kalkulator.add(numberString));
+        System.out.println("\nResult:" + kalkulator.add("5,23,64,23,-65"));
+      
+        
         
     }
 }
